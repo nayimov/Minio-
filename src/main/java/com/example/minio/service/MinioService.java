@@ -25,7 +25,8 @@ public class MinioService {
     @Value("${minio.bucket.name}")
     private String bucketName;
 
-    public List<String> getListObjects() throws InternalException {
+    public List<String> getListObjects() throws InternalException ,ErrorResponseException,InsufficientDataException,InvalidKeyException,InvalidResponseException,
+            IOException,NoSuchAlgorithmException,XmlParserException,ServerException{
         List<String> files = new ArrayList<>();
         minioClient.listObjects(ListObjectsArgs.builder()
                 .bucket(bucketName)
@@ -43,7 +44,7 @@ public class MinioService {
     }
 
     private String getPreSignedUrl(String filename) {
-        return "http://localhost:9001/buckets/file/".concat(filename);
+        return bucketName.concat(filename);
     }
 
     public FileDto uploadFile(FileDto request) {
