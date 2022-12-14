@@ -3,7 +3,6 @@ package com.example.minio.service;
 import com.example.minio.dto.FileDto;
 import io.minio.*;
 import io.minio.errors.*;
-import io.minio.messages.Item;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
