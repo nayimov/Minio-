@@ -25,8 +25,7 @@ public class MinioService {
     @Value("${minio.bucket.name}")
     private String bucketName;
 
-    public List<String> getListObjects() throws InternalException ,ErrorResponseException,InsufficientDataException,InvalidKeyException,InvalidResponseException,
-            IOException,NoSuchAlgorithmException,XmlParserException,ServerException{
+    public List<String> getListObjects() {
         List<String> files = new ArrayList<>();
         minioClient.listObjects(ListObjectsArgs.builder()
                 .bucket(bucketName)
